@@ -14,11 +14,13 @@ public class Main {
         ServerSocket socketRecepcao = new ServerSocket(8080);
         while (true) {
             Socket socketConexao = socketRecepcao.accept();
+            System.out.println("Conexão");
             BufferedReader doCliente = new BufferedReader(new InputStreamReader(socketConexao.getInputStream()));
             DataOutputStream paraCliente = new DataOutputStream(socketConexao.getOutputStream());
             fraseCliente = doCliente.readLine();
             fraseMaiuscula = fraseCliente.toUpperCase() + "\n";
             paraCliente.writeBytes(fraseMaiuscula);
+
         }
 
 
